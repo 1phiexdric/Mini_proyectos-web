@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practicando con javascripts</title>
+    <!-- Estilos css -->
+    <link rel="stylesheet" href="css/blue.css" id="theme">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
+    <!-- jQuery -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+
+    <!-- moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/locale/es.min.js"></script>
+
+    <!-- Slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
+
+</head>
+
+<body>
+    <div id="change-theme">
+        <button id="to-green" class="theme-selector"></button>
+        <button id="to-red" class="theme-selector"></button>
+        <button id="to-blue" class="theme-selector"></button>
+    </div>
+    <div id="global">
+        <header>
+            <div id="header_content">
+                <h1 id="title">Practicando js</h1>
+                <input type="search" name="" id="" placeholder="Que quieres buscar?">
+            </div>
+            <nav  id="menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="reloj.html">Reloj</a></li>
+                    <li><a href="about_me.html">Sobre mi</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Slider -->
+        <div id="slider">
+            <div class="bxslider">
+                <div><img src="img/cielo.jpg" title="Cielo" /></div>
+                <div><img src="img/hojas.jpg" title="hoja" /></div>
+                <div><img src="img/rojo.jpg" title="rojo" /></div>
+              </div>
+        </div>
+        <main id="content">
+            
+            <div id="posts">
+            </div>
+            <aside id="sidebar">
+                <div id="about">
+                    <h4>Quien soy?</h4>
+                    <img src="./img/caracol.jpg" alt="">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore error aperiam repudiandae eum sunt fugiat dignissimos totam doloremque nobis debitis, veniam, modi quas dolorum porro cum cupiditate voluptatibus praesentium odit.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod dolore officia aperiam quibusdam dolorem? Saepe, at non enim voluptas odit consequuntur magni maiores illum eaque? Repellat et quae voluptas dolore!
+                    </p>
+                </div>
+                <div id="login">
+                    <h4>Identificate</h4>
+                    <form action="" id="login-form">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                        <label for="password">Constraseña</label>
+                        <input type="password" id="password" name="password">
+                        <input type="submit" value="Entrar">
+                    </form>
+                </div>
+            </aside>
+        </main>
+        
+    </div>
+    <footer>
+        Friedrich Ruiz el mas cabron &copy;
+        <a href="#" class="subir">Ir arriba</a>
+    </footer>
+</body>
+</html>

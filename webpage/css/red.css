@@ -1,0 +1,37 @@
+::selection {
+    background-color: #742b1a;
+    color: white;
+  }
+  
+  ::-moz-selection {
+    background-color: #742b1a;
+    color: white;
+  }
+
+body{
+    background-image: url('../img/rojo.jpg');
+}
+#global{
+    background-color: white;
+    box-shadow: 0px 0px 5px gray;
+}
+#title{
+    background: #CA3413;
+    color: white;
+}
+
+#menu ul li:hover{
+    background-color: #CA3413;
+}
+
+
+.btn_more{
+    background-color: #CA3413;
+    color: white;
+}
+
+input:focus {
+    outline-style: solid;
+    outline-color: #CA3413;
+    outline-width: 2px;
+  }

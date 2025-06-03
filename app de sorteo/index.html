@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App de Sorteos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/wheel.css">
+    <script src="main.js"></script>
+    <script src="ruleta.js"></script>
+</head>
+
+<body>
+    <header>
+        <img src="app_sorteos-removebg-preview.png" alt="Logo de la App" class="img-header">
+        <nav>
+            <ul>
+                <li><a href="#contenedor-inputs">Sorteo por números</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="grid">
+            <div class="sorteo div1">
+                <h1 class="titulo">¡Dale emoción a tus sorteos!</h1>
+                <p>Nuestra app te permite crear sorteos personalizados y elegir ganadores de forma rápida y sencilla.
+                </p>
+                <p><b>¡Completamente gratis!</b></p>
+
+                <form action="" id="ruleta_form">
+                    <label for="title">Título del Sorteo</label>
+                    <input type="text" id="title" placeholder="Ej: Sorteo de Verano">
+
+                    <label for="personas">Participantes (uno por línea)</label>
+                    <textarea id="personas" placeholder="Ej:&#x0a;Juan&#x0a;María&#x0a;Carlos"></textarea>
+
+                    <button type="submit">Agregar</button>
+                </form>
+                <div id="winner"></div>
+            </div>
+
+            <div class="sorteo" class="div2">
+                <div class="container">
+                    <div id="final-winner">
+                        <p>Haz click al boton para iniciar</p>
+                    </div>
+                    <canvas id="wheel"></canvas>
+                    <button id="spin-btn">spin</button>
+                    <img src="./img/spinner-arrow-.svg" alt="spinner-arrow" id="arrow">
+
+                </div>
+            </div>
+
+
+        <div id="contenedor-inputs" class="div3">
+            
+            <form>
+                <h2 class="titulo">Sorteo por numeros</h2>
+                <div>
+                    <label for="n1">Número Mínimo</label>
+                    <input type="number" id="n1" placeholder="Ej: 1">
+                </div>
+                <div>
+                    <label for="n2">Número Máximo</label>
+                    <input type="number" id="n2" placeholder="Ej: 100">
+                </div>
+                <button type="submit" id="btn1">¡Sortear Número!</button>
+            </form>
+
+        </div>
+        
+    </main>
+    <div id="Numerorandom">
+        <p id="resultado"></p>
+    </div>
+    <button id="feedback"><a href="./registro/index.html">¡Danos tu feedback!</a></button>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+</body>
+
+</html>

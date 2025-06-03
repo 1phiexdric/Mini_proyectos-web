@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+
+<body>
+    <main>
+        <h1 id="title">Ayudanos a mejorar tu experiencia de usuario</h1>
+        <p id="description">Tu opinión es invaluable para nosotros. Completa esta
+            encuesta para ayudarnos a mejorar tu experiencia en nuestra plataforma y ofrecerte las herramientas que
+            necesitas</p>
+        <form action="https..." method="post" id="survey-form">
+            <fieldset>
+                <label for="name" id="name-label"> Nombre completo
+                    <input type="text" id="name" placeholder="nombre" required>
+                </label>
+                <label for="email" id="email-label"> Correo electronico
+                    <input type="email" name="email" id="email" placeholder="Introduzca su correo electronico" required>
+                </label>
+                <label for="number" id="number-label"> Introduzca su edad
+                    <input type="number" id="number" min="15" max="40" placeholder="Introduzca su edad">
+                </label>
+            </fieldset>
+            <fieldset>
+                <label for="dropdown"> ¿Con que frecuencia utilizas nuestra plataforma?
+                    <select name="frecuencia-uso" id="dropdown">
+                        <option value="Diaria" selected>Diaria</option>
+                        <option value="Semanal">Semanal</option>
+                        <option value="Mensual">Mensual</option>
+                        <option value="ocasionalmente">ocasionalmente</option>
+                        <option value="nunca">nunca</option>
+                    </select>
+                </label>
+            </fieldset>
+            <fieldset class="radio-checkbox">
+                <legend>¿Como clasificarias la interfaz de usuario de la plataforma?</legend>
+                <label for="muy-facil" class="input-radio">
+                    <input type="radio" name="clasificación" id="muy-facil" value="muy facil de usar">Muy fácil de usar
+                </label>
+                <br><br>
+                <label for="facil" class="input-radio">
+                    <input type="radio" name="clasificación" id="facil" value="facilusar">Fácil de usar
+                </label>
+                <br><br>
+                <label for="Neutral" class="input-radio">
+                    <input type="radio" name="clasificación" id="Neutral" value="Neutral">Neutral
+                </label>
+                <br><br>
+                <label for="dificil" class="input-radio">
+                    <input type="radio" name="clasificación" id="dificil" value="dificil">Dificil de usar
+                </label>
+                <br><br>
+                <label for="muy-dificil" class="input-radio">
+                    <input type="radio" name="clasificación" id="muy-dificil" value="muy dificil">Muy dificil de usar
+                </label>
+            </fieldset>
+            <fieldset class="radio-checkbox">
+                <legend>¿Qué tipo de recursos te gustaria encontrar en nuestra plataforma?</legend>
+                <label for="tutorial" class="input-checkbox">
+                    <input type="checkbox" name="tutorial" id="tutorial" value="tutoriales">Tutoriales en video
+                </label>
+                <br><br>
+                <label for="Proyectos" class="input-checkbox">
+                    <input type="checkbox" name="proyecto" id="Proyectos" value="Proyectos">Proyectos de código abierto
+                </label>
+                <br><br>
+                <label for="Foros" class="input-checkbox">
+                    <input type="checkbox" name="Foros" id="Foros" value="Foro"> Foros de discucion
+                </label>
+                <br><br>
+                <label for="Webinars" class="input-checkbox">
+                    <input type="checkbox" name="webinars" id="Webinars" value="Webinars">Webinars y conferencias en
+                    linea
+                </label>
+                <br><br>
+                <label for="Noticias" class="input-checkbox">
+                    <input type="checkbox" name="Noticias" id="Noticias" value="Noticias">Noticias de la industria
+                </label>
+            </fieldset>
+            <label for="textarea" id="label-textarea"> Deja abajo tus Comentarios y recomendaciones</label>
+            <textarea name="textarea" id="textarea" rows="5" cols="40" placeholder="Comentarios Adicionales"></textarea>
+            <input type="submit" value="Enviar" id="submit">
+        </form>
+    </main>
+</body>
+
+</html>

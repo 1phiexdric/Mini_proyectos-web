@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --color1: #0e7990;
+  --color2: #0b697f;
+  --color3: #07596f;
+  --color4: #04485e;
+  --color5: #00384d;
+}
+
+* {
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(var(--color3), var(--color5));
+  height: 100vh;
+  max-width: 100%;
+  overflow: hidden; /* Evita la barra de desplazamiento */
+}
+
+h1, h2 {
+  font-size: 1.5rem; /* Ajusta el tamaño de fuente */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 20px; /* Reduce el margen */
+  font-weight: 800;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px; /* Ajusta el espacio entre columnas */
+  grid-row-gap: 10px; /* Ajusta el espacio entre filas */
+  height: calc(100% - 40px); /* Ajusta la altura */
+  padding: 20px; /* Añade padding */
+}
+
+.div1, .div2 {
+  border: 3px solid #0e7990;
+  border-radius: 10px;
+  padding: 20px; /* Reduce el padding */
+  overflow: auto; /* Permite el desplazamiento interno si es necesario */
+}
+
+.div1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.div2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.player {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0e7990;
+  width: 100%;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#player {
+  overflow: hidden;
+}
+
+.ytp-chrome-top,
+.ytp-show-cards-title {
+  display: none !important;
+}
+
+#player::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  background: transparent;
+}
+
+#cover {
+  height: 300px; /* Ajusta el tamaño */
+  width: 50%; /* Ajusta el tamaño */
+}
+
+#player-btns {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #00384d;
+  width: 100%;
+  margin: auto;
+  border-radius: 10px;
+}
+
+button {
+  background-color: #0b697f;
+  width: 30px; /* Ajusta el tamaño */
+  height: 30px; /* Ajusta el tamaño */
+  margin: 10px;
+}
+
+.png-player {
+  margin: auto;
+  width: 20px;
+  height: 30px;
+}
+
+/* Playlist */
+.playlist {
+  height: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+}
+
+#playlist-songs {
+  width: 100%;
+  height: 100%;
+  background-color: var(--foreground-color);
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  padding: 8px 9px;
+  visibility: visible;
+  justify-content: start;
+  list-style: none;
+}
+
+.playlist-song {
+  display: flex;
+  height: 55px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+[aria-current="true"] {
+  background-color: var(--background-color);
+}
+
+[aria-current="true"] p {
+  color: var(--highlight-color);
+}
+
+.playlist-song-info {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 7px;
+  padding: 10px; /* Reduce el padding */
+  font-family: var(--font-family);
+  border-radius: 10px;
+}
+
+#player-song-title,
+#player-song-artist {
+  margin: 0;
+}
+
+#player-song-artist {
+  color: var(--highlight-color);
+  font-size: 0.75rem;
+}
+
+#player-song-title {
+  font-size: 1rem; /* Ajusta el tamaño de fuente */
+}
+
+.playlist-song-title {
+  font-size: 0.85rem;
+  width: 200px; /* Ajusta el tamaño */
+  text-align: left;
+}
+
+.playlist-song-artist {
+  font-size: 0.725rem;
+  width: 80px;
+}
+
+.playlist-song-duration {
+  font-size: 0.725rem;
+  margin: auto;
+  font-family: var(--font-headline);
+  width: 30px;
+}
+
+.playlist-song-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 30px; /* Ajusta el tamaño */
+  height: 30px; /* Ajusta el tamaño */
+  border-radius: 10px;
+}
+
+.playlist-song-delete,
+.playlist-song-delete {
+  fill: var(--foreground-color);
+}
+
+.playlist-song-delete:hover circle,
+.playlist-song-delete:focus circle {
+  fill: #ff0000;
+}
+
+div#player {
+  pointer-events: none; /* Desactiva la interacción con el iframe */
+}
+/* Eliminar elementos residuales */
+.ytp-chrome-top, 
+.ytp-title-link, 
+.ytp-title-channel, 
+.ytp-chapter-container, 
+.ytp-pause-overlay {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* Ocultar marca de agua en algunos navegadores */
+.ytp-watermark {
+    opacity: 0 !important;
+}
+
+.ytp-theater {
+  display: none !important;
+}
+
+/* Oculta el overlay de videos relacionados al pausar */
+.ytp-pause-overlay,         /* Panel de pausa */
+.ytp-scroll-min,           /* Miniaturas de videos */
+.ytp-videowall-still {     /* Miniaturas laterales */
+    display: none !important;
+    opacity: 0 !important;
+}
+
+/* Elimina el botón "Ver más" */
+.ytp-pause-overlay-container {
+    visibility: hidden !important;
+}
+
+/* Contenedor principal */
+#player {
+    position: relative;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 750px) {
+  .parent {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .div1 {
+    grid-area: 1 / 1 / 2 / 2;
+    border: 3px solid #0e7990;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .div2 {
+    grid-area: 2 / 1 / 3 / 2;
+    border: 3px solid #0e7990;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  h1, h2 {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 60px;
+    font-weight: 800;
+  }
+
+  .player {
+    width: 60%;
+  }
+
+  #player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0e7990;
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+  }
+
+  #player-btns {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #00384d;
+    width: 60%;
+    border-radius: 10px;
+  }
+
+  #cover {
+    height: 150px;
+    width: 150px;
+  }
+
+  button {
+    background-color: #0b697f;
+    width: 30px;
+    height: 30px;
+  }
+
+  .png-player {
+    margin: auto;
+    width: 20px;
+    height: 30px;
+  }
+}

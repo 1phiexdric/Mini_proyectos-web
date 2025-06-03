@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+*{
+    margin: 0px;
+}
+
+body{
+    margin: 10px auto;
+    font-size: 20px;
+    width: 90%;
+}
+
+main, header, footer{
+    background-color: #f1f1f1;
+}
+
+header{
+    height: 300px;
+}
+
+.arribita{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.titulosgrande{
+    margin: 60px auto;
+    text-align: center;
+    align-items: center;
+}
+
+#nav{
+    display: flex;
+}
+
+nav ul{
+    text-decoration: none;
+    list-style: none;
+    list-style-type: none; /* Añadir esta línea */
+}
+ul span{
+    margin: 0 10px;
+}
+
+h1{
+    font-size: 50px;
+    text-transform: uppercase;
+}
+
+.header{
+    font-family: "Bebas Neue";
+    letter-spacing: 1.5px;
+}
+
+p, li{
+    font-size: 17px;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(40, 40, 157);
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.h3{
+    margin: 10px 0 20px 15px;
+    font-size: 1.5em;
+}
+
+
+
+.grid2{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+
+.grid2 section{
+    margin: 10px;
+    border-radius: 60px;
+    height: 150px;
+    width: 200px;
+    border: 1px black solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 30px;
+}
+
+
+.medio{
+    padding: 10px;
+}
+
+.border{
+    border: 1px black solid;
+}
+.redondo{
+    border-bottom: none;
+}
+
+footer {
+    border-left: 1px black solid;
+    border-right: 1px black solid;
+    border-bottom: 1px black solid;
+    height: 200px; /* Ajusta la altura según sea necesario */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Ajusta el color de fondo según sea necesario */
+}
