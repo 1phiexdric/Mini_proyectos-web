@@ -131,6 +131,19 @@ hr{
     color: rgb(216, 0, 0);
     font-size: 15px;
 }
+
+
+#notification{
+    height: 70px;
+    width: 200px;
+    position: fixed;
+    top: 40px;
+    right: 90px;
+    background-color: bisque;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
 @media screen and (max-width: 720px) {
     .principal-content{
         width: 70%;

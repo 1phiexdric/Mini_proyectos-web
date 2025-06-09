@@ -1,38 +1,25 @@
-# sv
+# To do list
+App web para lista de tareas hecha con svelte
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## Características
+1. Agregar nueva tarea:
+    - Botón que abre un formulario con los campos:
+        - Título (ej: "Hacer arroz con huevo de cena").
+        - Fecha (ej: 2025-06-13).
+        - Descripción (ej: "Cocinar un rico y delicioso platillo").
+2. Eliminar tareas:
+    - Cada tarea tiene un botón "Borrar" para eliminarla de la lista.
+3. Cada tara es guardada en el localstorage
 
-## Creating a project
+## Cómo Usar
+1. Abrir el formulario: Haz clic en el botón "Nueva Tarea".
+2. Llenar los datos: Completa título, fecha y descripción.
+3. Guardar: La tarea se agregará automáticamente al listado.
+4. Eliminar: Haz clic en "Borrar" junto a cualquier tarea para eliminarla.
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Tecnologias
+- Svelte
+- Javascript
+- Typescript
+- CSS
+- HTML
