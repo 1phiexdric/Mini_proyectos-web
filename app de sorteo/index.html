@@ -7,8 +7,10 @@
     <title>App de Sorteos</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./css/wheel.css">
+    <link rel="stylesheet" href="./css/ligththeme.css">
     <script src="main.js"></script>
     <script src="ruleta.js"></script>
+    <script src="https://kit.fontawesome.com/993c96cbea.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -16,7 +18,12 @@
         <img src="app_sorteos-removebg-preview.png" alt="Logo de la App" class="img-header">
         <nav>
             <ul>
-                <li><a href="#contenedor-inputs">Sorteo por números</a></li>
+                <li><a href="#contenedor-inputs">SORTEO POR NÚMEROS</a></li>
+                <li>
+                    <button id="theme-change" class="theme-changer">
+                        <img src="./img/moon.svg" alt="" id="theme-img">
+                    </button>
+                </li>
             </ul>
         </nav>
     </header>
@@ -24,16 +31,13 @@
     <main class="grid">
             <div class="sorteo div1">
                 <h1 class="titulo">¡Dale emoción a tus sorteos!</h1>
-                <p>Nuestra app te permite crear sorteos personalizados y elegir ganadores de forma rápida y sencilla.
+                <p>Pagina que te permite crear sorteos personalizados y elegir ganadores de forma rápida y sencilla.
                 </p>
-                <p><b>¡Completamente gratis!</b></p>
 
                 <form action="" id="ruleta_form">
-                    <label for="title">Título del Sorteo</label>
-                    <input type="text" id="title" placeholder="Ej: Sorteo de Verano">
 
                     <label for="personas">Participantes (uno por línea)</label>
-                    <textarea id="personas" placeholder="Ej:&#x0a;Juan&#x0a;María&#x0a;Carlos"></textarea>
+                    <textarea id="personas" placeholder="Ej:&#x0a;José&#x0a;María&#x0a;Jesús"></textarea>
 
                     <button type="submit">Agregar</button>
                 </form>
@@ -43,7 +47,7 @@
             <div class="sorteo" class="div2">
                 <div class="container">
                     <div id="final-winner">
-                        <p>Haz click al boton para iniciar</p>
+                        <p>Haz click al boton spin para iniciar</p>
                     </div>
                     <canvas id="wheel"></canvas>
                     <button id="spin-btn">spin</button>
@@ -56,7 +60,7 @@
         <div id="contenedor-inputs" class="div3">
             
             <form>
-                <h2 class="titulo">Sorteo por numeros</h2>
+                <h2 class="titulo">SORTEOS POR NUMEROS</h2>
                 <div>
                     <label for="n1">Número Mínimo</label>
                     <input type="number" id="n1" placeholder="Ej: 1">
@@ -74,9 +78,25 @@
     <div id="Numerorandom">
         <p id="resultado"></p>
     </div>
-    <button id="feedback"><a href="./registro/index.html">¡Danos tu feedback!</a></button>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <footer>
+    <div class="social-links">
+    <a href="https://www.linkedin.com/in/friedrich-ruiz-097a6832a/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>    
+    <a href="https://github.com/1phiexdric" target="_blank"><i class="fa-brands fa-github"></i></a>
+    <a href="https://x.com/@Friedrichruz" target="_blank"><i class="fa-brands fa-x-twitter"></i> </a>
+  </div>
+    <p>
+    📱 Únete a mi <a
+      class="edited-link"
+      href="https://whatsapp.com/channel/0029Vb5i1xhKwqSMe3uzZZ0T"
+      target="_blank"
+      style="color: blue;">canal de WhatsApp</a
+    >
+  </p>
+
+  <strong>🌐 phiexdricdev</strong>
+    </footer>
 </body>
 
 </html>
