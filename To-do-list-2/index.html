@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <title>To do list</title>
+</head>
+<body>
+    <main>
+        <h1>To do app</h1>
+        <div class="to-do-app">
+            <button class="btn-add-task btn" id="add-task-open-btn">
+                Add task
+            </button>
+            <form class="to-do-form">
+                <button class="btn-close btn" type="button">X</button>
+                <label for="title-task">
+                    Task's title
+                    <input type="text" id="title-task" required>
+                </label>
+                <label for="date-task">Date
+
+                    <input type="date" id="date-task">
+                </label>
+                <label for="description-task">
+                    Description
+                    <textarea name="description" id="description-task"></textarea>
+                </label>
+                <button type="submit" class="btn-submit btn" id="add-submit-btn">Add</button>
+            </form>
+            <div id="tasks-container"></div>
+        </div>
+        <dialog class="confirm-close-dialog">
+            <form method="dialog">
+                <p class="discar-message-text">
+                    Discard unsaved changes?
+                </p>
+                <div class="dialog-buttons">
+                    <button id="cancel-btn" class="btn">Cancel</button>
+                    <button id="discard-btn" class="btn">Discard</button>
+                </div>
+            </form>
+        </dialog>
+    </main>
+</body>
+</html>

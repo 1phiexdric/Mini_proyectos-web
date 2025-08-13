@@ -1,0 +1,266 @@
+/* === Custom Properties / Variables === */
+:root {
+    --primary-bg-color: #f4f4f4;
+    --container-bg-color: #ffffff;
+    --primary-text-color: #333;
+    --light-text-color: #ffffff;
+    --border-color: #ccc;
+    --shadow-color: rgba(0, 0, 0, 0.15);
+
+    --success-color: rgb(82, 167, 82);
+    --success-hover-color: rgb(75, 174, 75);
+    --danger-color: rgb(216, 103, 103);
+    --disabled-color: #cccccc;
+    --disabled-text-color: #666666;
+
+    --base-font-size: 16px; /* Base font size for rem units */
+    --border-radius: 10px;
+    --transition-speed: 0.3s;
+}
+
+/* === General Reset & Base Styles === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-color);
+    font-size: var(--base-font-size);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-size: 2.6rem;
+}
+
+/* === Main App Container === */
+.to-do-app {
+    width: 90%;
+    max-width: 800px; /* Fixed max-width for better large screen layout */
+    min-width: 300px;
+    background-color: var(--container-bg-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+/* === Task Form Modal === */
+.to-do-form {
+    display: none;
+    flex-direction: column;
+    gap: 15px; /* Increased gap for better spacing */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    background-color: var(--container-bg-color);
+    padding: 1.5rem 2rem; /* Adjusted padding */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    border-radius: var(--border-radius);
+    z-index: 10; /* Ensure form is on top */
+}
+
+.to-do-form.active {
+    display: flex;
+}
+
+/* === Form Elements === */
+label {
+    font-size: 1.5rem; /* Slightly reduced for balance */
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px; /* Increased padding for better usability */
+    border-radius: 5px; /* Softer radius */
+    border: 1px solid var(--border-color);
+    font-size: 1rem;
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--success-color);
+    box-shadow: 0 0 5px rgba(82, 167, 82, 0.5);
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resize, but not horizontal */
+    min-height: 80px;
+}
+
+/* === Buttons === */
+.btn {
+    padding: 10px 15px;
+    font-size: 1rem; /* Unified font size */
+    color: var(--light-text-color);
+    border: none;
+    border-radius: 8px; /* Slightly smaller radius */
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease, transform var(--transition-speed) ease;
+    -webkit-tap-highlight-color: transparent; /* For mobile */
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-add-task {
+    width: 70%;
+    margin: 0 auto;
+    background-color: var(--success-color);
+    font-size: 1.5rem; /* Larger font for primary action */
+}
+
+.btn-add-task:hover {
+    background-color: var(--success-hover-color);
+}
+
+.btn-close {
+    width: 35px;
+    height: 35px;
+    margin-left: auto;
+    border-radius: 50%;
+    background: var(--danger-color);
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* Reset padding for icon button */
+}
+
+.btn-submit {
+    background-color: var(--disabled-color);
+    color: var(--disabled-text-color);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.btn-submit.active {
+    background-color: var(--success-color);
+    color: var(--light-text-color);
+    cursor: pointer;
+}
+
+.btn-submit.active:hover {
+    background-color: var(--success-hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*=== Dialog message ===*/
+.confirm-close-dialog {
+    margin: auto;
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    background-color: var(--primary-bg-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.confirm-close-dialog p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: var(--primary-text-color);
+    text-align: center;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: center; /* Center buttons */
+    gap: 15px; /* Space between buttons */
+}
+
+#discard-btn {
+    background-color: var(--danger-color);
+}
+
+#discard-btn:hover {
+    background-color: rgb(237, 85, 85); /* Lighter red on hover */
+}
+
+#cancel-btn {
+    background-color: var(--success-color);
+}
+
+#cancel-btn:hover {
+    background-color: var(--success-hover-color);
+}
+
+
+/* == task ==*/
+#tasks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 10px; /* Increased padding */
+    margin-bottom: 0; /* Removed margin as gap is used in container */
+}
+
+.task p {
+    margin: 2px 0; /* Tighter spacing for task details */
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px; /* Space between edit/delete buttons */
+}
+
+.btn-edit, .btn-delete {
+    padding: 8px 12px; /* Custom padding for smaller buttons */
+    font-size: 0.9rem;
+}
+
+.btn-edit {
+    background-color: #3498db; /* Blue for edit */
+}
+
+.btn-edit:hover {
+    background-color: #2980b9;
+}
+
+.btn-delete {
+    background-color: var(--danger-color); /* Red for delete */
+}
+
+.btn-delete:hover {
+    background-color: rgb(237, 85, 85);
+}
+ 
