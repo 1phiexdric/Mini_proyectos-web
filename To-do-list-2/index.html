@@ -9,11 +9,20 @@
 </head>
 <body>
     <main>
+        <div id="notificacion">
+            <p class="notification-text"></p>
+            <button class="notification-close-btn" type="button">&times;</button>
+        </div>
         <h1>To do app</h1>
         <div class="to-do-app">
             <button class="btn-add-task btn" id="add-task-open-btn">
                 Add task
             </button>
+            <select name="" id="filter" class="filter">
+                <option value="all">All</option>
+                <option value="completed">Completed</option>
+                <option value="pending">Pending</option>
+            </select>
             <form class="to-do-form">
                 <button class="btn-close btn" type="button">X</button>
                 <label for="title-task">
@@ -28,9 +37,15 @@
                     Description
                     <textarea name="description" id="description-task"></textarea>
                 </label>
-                <button type="submit" class="btn-submit btn" id="add-submit-btn">Add</button>
+                <button type="submit" class="btn-submit btn" id="btn-submit">Add Task</button>
             </form>
-            <div id="tasks-container"></div>
+        </div>
+        <div id="task-list-container">
+            <div id="tasks-container">
+                <h3>Your task</h3>
+                <hr>
+                there are no tasks yet
+            </div>
         </div>
         <dialog class="confirm-close-dialog">
             <form method="dialog">

@@ -1,6 +1,6 @@
 /* === Custom Properties / Variables === */
 :root {
-    --primary-bg-color: #f4f4f4;
+    --primary-bg-color: #eeeaea;
     --container-bg-color: #ffffff;
     --primary-text-color: #333;
     --light-text-color: #ffffff;
@@ -25,6 +25,7 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--primary-bg-color);
@@ -39,8 +40,95 @@ h1 {
     font-size: 2.6rem;
 }
 
+/* === Notification === */
+#notificacion {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--success-color);
+    color: var(--light-text-color);
+    border-radius: var(--border-radius);
+    padding: 15px 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transform: translateX(120%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
+    z-index: 1000;
+    font-weight: 600;
+}
+
+#notificacion.active {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.notification-text {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.notification-close-btn {
+    background: none;
+    border: none;
+    color: var(--light-text-color);
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.notification-close-btn:hover {
+    opacity: 1;
+}
+.filter {
+    /* Remove default system appearance */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* Custom Arrow using SVG */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23333333' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+
+    /* Sizing and Spacing */
+    width: 70%; /* Match the button width */
+    max-width: 400px; /* Add a max-width to prevent it from becoming too large */
+    margin-top: 1rem;
+    padding: 12px 40px 12px 15px; /* Top, Right (for arrow), Bottom, Left */
+
+    /* Border and Background */
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* Match other elements */
+    background-color: var(--container-bg-color);
+
+    /* Typography */
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary-text-color);
+
+    /* Behavior */
+    cursor: pointer;
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.filter:focus {
+    outline: none;
+    border-color: var(--success-color);
+    box-shadow: 0 0 5px rgba(82, 167, 82, 0.5);
+}
+
 /* === Main App Container === */
-.to-do-app {
+.to-do-app, #task-list-container {
     width: 90%;
     max-width: 800px; /* Fixed max-width for better large screen layout */
     min-width: 300px;
@@ -56,6 +144,8 @@ h1 {
     box-shadow: 0 4px 8px var(--shadow-color);
 }
 
+
+
 /* === Task Form Modal === */
 .to-do-form {
     display: none;
@@ -65,7 +155,7 @@ h1 {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 90%;
+    width: 99%;
     max-width: 600px;
     background-color: var(--container-bg-color);
     padding: 1.5rem 2rem; /* Adjusted padding */
@@ -84,7 +174,7 @@ label {
     font-weight: bold;
 }
 
-input,
+input:not([type="checkbox"]),
 textarea {
     width: 100%;
     padding: 10px; /* Increased padding for better usability */
@@ -136,6 +226,7 @@ textarea {
     margin: 0 auto;
     background-color: var(--success-color);
     font-size: 1.5rem; /* Larger font for primary action */
+
 }
 
 .btn-add-task:hover {
@@ -161,6 +252,7 @@ textarea {
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
+    font-weight: 800;
 }
 
 .btn-submit.active {
@@ -217,6 +309,7 @@ textarea {
 
 
 /* == task ==*/
+
 #tasks-container {
     display: flex;
     flex-direction: column;
@@ -232,15 +325,56 @@ textarea {
     border-bottom: 1px solid var(--border-color);
     padding: 15px 10px; /* Increased padding */
     margin-bottom: 0; /* Removed margin as gap is used in container */
+    transition: background-color var(--transition-speed) ease; /* Smooth transition for background color change */
 }
+
+/* === Completed Task Styling === */
+/* This section adds styles for tasks that are marked as completed. */
+
+/* Styles for a completed task. */
+.task.completed {
+    background-color: #f0f0f0; /* A slightly darker, "disabled" background. */
+    color: var(--disabled-text-color); /* Dims the text color to make it look inactive. */
+}
+
+/* Adds a line-through to all text within the task's info section. */
+.task.completed .task-info p {
+    text-decoration: line-through;
+}
+
+/* Wrapper for the task's text content. */
+.task-info {
+    flex-grow: 1; /* Allows this section to take up available space. */
+    margin-right: 10px; /* Adds some space between the text and the action buttons. */
+}
+
 
 .task p {
     margin: 2px 0; /* Tighter spacing for task details */
+    overflow-wrap: break-word;
 }
 
 .task-actions {
     display: flex;
     gap: 10px; /* Space between edit/delete buttons */
+    align-items: center; /* Vertically aligns the action buttons and the checkbox. */
+}
+
+/* Styles for the "Done" checkbox and its label. */
+.complete-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    color: var(--primary-text-color); /* Ensures the label text is readable by default. */
+    margin-right: 10px; /* Adds space between the checkbox and the Edit/Delete buttons. */
+    font-size: 0.9rem; /* Matches the font size of other action buttons. */
+    font-weight: normal; /* Resets bold weight from the main label style. */
+}
+
+/* Dims the checkbox label when the task is completed. */
+.task.completed .complete-checkbox-label {
+    color: var(--disabled-text-color);
 }
 
 .btn-edit, .btn-delete {
@@ -263,4 +397,25 @@ textarea {
 .btn-delete:hover {
     background-color: rgb(237, 85, 85);
 }
- 
+.btns-actions{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+@media (width < 720px){
+    .task{
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .task-actions{
+        width: 100%;
+        margin-top: 1rem;
+        justify-content: space-between;
+    }
+    .btns-actions{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+}
