@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <h1>Search Rpg best</h1>
+        <form class="form">
+            <input type="text" id="search-input" required>
+            <button id="search-button">Search</button>
+        </form>
+        <div id="main-info">
+            <div class="top-container">
+<h3><span id="creature-name"></span><span id="creature-id"></span></h3>
+            <div id="size">
+                <span id="weight"></span>
+                <span id="height"></span>
+            </div>
+            <div class="types" id="types">
+            </div>
+            <div id="special">
+                <p id="special-name"></p>
+                <p id="special-description"></p>
+            </div>
+            </div>
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Stats</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HP</td>
+                        <td id="hp"></td>
+                    </tr>
+                    <tr>
+                        <td>Attack</td>
+                        <td id="attack"></td>
+                    </tr>
+                    <tr>
+                        <td>Defense</td>
+                        <td id="defense"></td>
+                    </tr>
+                    <tr>
+                        <td>s.Attack</td>
+                        <td id="special-attack"></td>
+                    </tr>
+                    <tr>
+                        <td>s.Defense</td>
+                        <td id="special-defense"></td>
+                    </tr>
+                    <tr>
+                        <td>Speed</td>
+                        <td id="speed"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>

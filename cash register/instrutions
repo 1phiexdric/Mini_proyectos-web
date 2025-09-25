@@ -1,0 +1,51 @@
+Aquí construirás una aplicación de caja registradora que devolverá el cambio al cliente basándose en el precio del artículo, la cantidad de efectivo proporcionada por el cliente y la cantidad de efectivo en el cajón de la caja. También necesitarás mostrar diferentes mensajes al usuario en distintos escenarios, como cuando el cliente proporciona muy poco efectivo o cuando el cajón de la caja no tiene suficiente dinero para dar el cambio correcto.
+
+En el archivo script.js, se te han proporcionado las variables price y cid. La variable price es el precio del artículo y la variable cid (cash-in-drawer) es el efectivo en el cajón de la caja, que es un array 2D que lista la moneda disponible.
+
+La otra variable que necesitarás agregar es la variable cash, que es la cantidad de efectivo proporcionada por el cliente para el artículo, la cual se obtiene a través de un elemento input en la página.
+
+Si deseas probar tu aplicación con diferentes valores para price y cid, asegúrate de declararlos con la palabra clave let para que puedan ser reasignados por nuestras pruebas.
+
+Tu aplicación debe mostrar diferentes mensajes dependiendo del precio del artículo, la cantidad de efectivo proporcionada por el cliente y la cantidad de efectivo en el cajón:
+
+"Status: INSUFFICIENT_FUNDS": si el efectivo en el cajón es menor que el cambio adeudado, o si no puedes devolver el cambio exacto.
+
+"Status: CLOSED": si el efectivo en el cajón es igual al cambio adeudado.
+
+"Status: OPEN": si el efectivo en el cajón es mayor que el cambio adeudado y puedes devolver el cambio, con el cambio adeudado en monedas y billetes ordenados de mayor a menor valor.
+
+Unidad de Moneda	Cantidad
+Penny	$0.01 (PENNY)
+Nickel	$0.05 (NICKEL)
+Dime	$0.1 (DIME)
+Quarter	$0.25 (QUARTER)
+Dollar	$1 (ONE)
+Five Dollars	$5 (FIVE)
+Ten Dollars	$10 (TEN)
+Twenty Dollars	$20 (TWENTY)
+One Hundred Dollars	$100 (ONE HUNDRED)
+Objetivo: Construir una aplicación que sea funcionalmente similar a https://cash-register.freecodecamp.rocks.
+
+Historias de Usuario:
+
+Debes tener un elemento input con un id de "cash".
+
+Debes tener un elemento div, span o p con un id de "change-due".
+
+Debes tener un elemento button con un id de "purchase-btn".
+
+Cuando el valor en el elemento #cash es menor que price, debe aparecer una alerta con el texto "Customer does not have enough money to purchase the item".
+
+Cuando el valor en el elemento #cash es igual a price, el valor en el elemento #change-due debe ser "No change due - customer paid with exact cash".
+
+Cuando price es 19.5, el valor en el elemento #cash es 20, cid es [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]], y se hace clic en el elemento #purchase-btn, el valor en el elemento #change-due debe ser "Status: OPEN QUARTER: $0.5".
+
+Cuando price es 3.26, el valor en el elemento #cash es 100, cid es [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]], y se hace clic en el elemento #purchase-btn, el valor en el elemento #change-due debe ser "Status: OPEN TWENTY: $60 TEN: $20 FIVE: $15 ONE: $1 QUARTER: $0.5 DIME: $0.2 PENNY: $0.04".
+
+Cuando price es 19.5, el valor en el elemento #cash es 20, cid es [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]], y se hace clic en el elemento #purchase-btn, el valor en el elemento #change-due debe ser "Status: INSUFFICIENT_FUNDS".
+
+Cuando price es 19.5, el valor en el elemento #cash es 20, cid es [["PENNY", 0.01], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 1], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]], y se hace clic en el elemento #purchase-btn, el valor en el elemento #change-due debe ser "Status: INSUFFICIENT_FUNDS".
+
+Cuando price es 19.5, el valor en el elemento #cash es 20, cid es [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]], y se hace clic en el elemento #purchase-btn, el valor en el elemento #change-due debe ser "Status: CLOSED PENNY: $0.5".
+
+Cumple las historias de usuario y pasa todas las pruebas a continuación para completar este proyecto. Dale tu propio estilo personal. ¡Feliz codificación!

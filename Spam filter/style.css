@@ -1,0 +1,174 @@
+
+:root {
+  /* Colores */
+  --primary-color: #007bff; /* Color principal para botones, enlaces, etc. */
+  --secondary-color: #6c757d; /* Color secundario para detalles o elementos de menor importancia. */
+  --accent-color: #28a745; /* Color de acento para notificaciones o elementos importantes. */
+  --background-color: #f8f9fa; /* Color de fondo general. */
+  --text-color: #343a40; /* Color principal del texto. */
+  --light-text-color: #adb5bd; /* Color de texto para contrastes en fondos oscuros o texto secundario. */
+  --border-color: #dee2e6; /* Color para bordes y líneas divisorias. */
+
+  /* Tipografía */
+  --font-family-sans-serif: 'Helvetica Neue', Arial, sans-serif; /* Fuente principal. */
+  --font-family-serif: 'Georgia', serif; /* Fuente secundaria (opcional). */
+  --font-size-base: 1rem; /* Tamaño de fuente base (16px). */
+  --font-size-lg: 1.25rem; /* Tamaño de fuente grande para títulos. */
+  --font-size-sm: 0.875rem; /* Tamaño de fuente pequeño para subtítulos o texto secundario. */
+  --font-weight-light: 300; /* Peso de fuente ligero. */
+  --font-weight-normal: 400; /* Peso de fuente normal. */
+  --font-weight-bold: 700; /* Peso de fuente negrita. */
+
+  /* Espaciado */
+  --spacing-xxs: 0.25rem; /* 4px */
+  --spacing-xs: 0.5rem;   /* 8px */
+  --spacing-sm: 0.75rem;  /* 12px */
+  --spacing-md: 1rem;     /* 16px */
+  --spacing-lg: 1.5rem;   /* 24px */
+  --spacing-xl: 2rem;     /* 32px */
+  --spacing-xxl: 3rem;    /* 48px */
+  
+  /* Transiciones y sombras (opcional) */
+  --transition-speed: 0.3s;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Added for better box model handling */
+}
+body{
+    
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family-sans-serif);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.5; /* Added for better readability */
+}
+
+main{
+    border: 1px solid var(--border-color); /* Softened the border */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-xl); /* Used spacing variable */
+    gap: var(--spacing-md); /* Used spacing variable */
+    border-radius: 8px; /* Slightly larger radius */
+    box-shadow: var(--box-shadow); /* Added shadow */
+    background-color: white; /* Added background color to stand out */
+    max-width: 90%;
+    width: 500px;
+}
+h1{
+    line-height: 1.2; /* Adjusted line-height */
+    color: var(--primary-color);
+    text-align: center;
+}
+label{
+    display: block;
+    text-align: center;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm); /* Used spacing variable */
+    font-size: var(--font-size-lg); /* Increased size for emphasis */
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md); /* Used spacing variable */
+    width: 100%;
+    align-items: center;
+}
+.input-container div{
+    width: 70%;
+}
+.input-container textarea{
+    resize: vertical; /* Allow vertical resize */
+    height: 100px; /* Increased height */
+    width: 100%; /* Make it responsive */
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: var(--font-family-sans-serif);
+    font-size: var(--font-size-base);
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.input-container textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+button{
+    padding: var(--spacing-sm) var(--spacing-lg); /* Used spacing variables */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--font-weight-bold);
+    background-color: var(--primary-color);
+    color: white; /* Added text color */
+    border: none;
+    border-radius: 5px; /* Slightly larger radius */
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+    max-width: 15rem;
+    margin: auto;
+    align-self: center; /* Center button */
+}
+button:hover{
+    transform: translateY(-2px); /* Changed translate to transform */
+    background-color: #0056b3; /* Darker shade for hover */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+button:active{
+    transform: translateY(0); /* Changed translate to transform */
+    background-color: var(--primary-color);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#result {
+    margin-top: var(--spacing-md);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    padding: var(--spacing-sm);
+    border-radius: 5px;
+}
+
+#result.spam {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+#result.not-spam {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 600px) {
+    main {
+        padding: var(--spacing-lg);
+    }
+
+    h1 {
+        font-size: var(--font-size-lg);
+    }
+
+    label {
+        font-size: var(--font-size-base);
+    }
+
+    .input-container textarea {
+        height: 120px;
+    }
+
+    button {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+}

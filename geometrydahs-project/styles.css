@@ -1,0 +1,107 @@
+:root {
+  /* Fondo del juego */
+  --fondo-oscuro: #0d0d0d; /* Un negro un poco más suave */
+  /* Cuadrito y elementos principales */
+  --color-principal: #00FFFF; /* Cian eléctrico */
+  /* Obstáculos y peligros */
+  --color-peligro: #FF0077; /* Rosa magenta */
+  /* Checkpoints y puntos seguros */
+  --color-checkpoint: #33FF00; /* Verde neón */
+  /* Detalles de la interfaz (botones, texto) */
+  --color-texto: #FFFFFF; /* Blanco puro */
+  --texto-oscuro: #000000;
+  --color-secundario: #FFC900; /* Amarillo brillante */
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+body{
+    background-color: var(--fondo-oscuro);
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    color: var(--color-texto);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.start-screen{
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border: 2px solid var(--color-principal);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--color-principal), inset 0 0 10px var(--color-principal);
+    animation: float 3s ease-in-out infinite;
+}
+
+canvas{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.main-title{
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px var(--color-texto), 0 0 5px var(--color-principal), 0 0 15px var(--color-principal);
+}
+
+.start-screen p{
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-shadow: 0 0 2px var(--color-texto);
+}
+
+.btn {
+    display: inline-block;
+    font-size: 1.5rem;
+    background-color: transparent;
+    padding: 10px 20px;
+    border: 2px solid var(--color-principal);
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    transition: all 0.3s ease;
+    color: var(--color-principal);
+    text-shadow: 0 0 5px var(--color-principal);
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--color-principal);
+    color: var(--texto-oscuro);
+    box-shadow: 0 0 25px var(--color-principal);
+    text-shadow: none;
+}
+
+.btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 15px var(--color-principal);
+}
+.checkpoint-screen{
+    position: fixed;
+    display: none;
+    top: 20px;
+    animation: float 3s ease-in-out infinite;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border: 3px solid var(--color-secundario);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--color-secundario), inset 0 0 10px var(--color-secundario);
+}
